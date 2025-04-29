@@ -9,16 +9,10 @@ class Book(models.Model):
     
     @classmethod
     def get_all_books(cls) -> QuerySet['Book']:
-        """
-        전체 책 목록 반환
-        """
         return cls.objects.all()
     
     @classmethod
     def get_books_by_author(cls, author_name: str) -> QuerySet['Book']:
-        """
-        특정 저자의 책만 반환
-        """
         return cls.objects.filter(author=author_name)
     
     @classmethod
@@ -27,7 +21,4 @@ class Book(models.Model):
     
     @classmethod
     def get_books_ordered_by_title(cls) -> QuerySet['Book']:
-        """
-        제목 순으로 정렬된 책 목록 반환
-        """
         return cls.objects.all().order_by("title")
